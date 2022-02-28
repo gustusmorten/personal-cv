@@ -38,19 +38,17 @@ export const Header = styled.div`
 	z-index: 1;
 	position: absolute;
 
+	
 
-    @media (max-width: 425px) {
-		flex-direction: column;
-	}
 `;
 
 export const ProfileCard = styled.div`
 	display: flex;
 	width: 100%;
 	height: fit-content;
-    @media (max-width: 425px) {
+	@media (max-width: 768px) {
 		flex-direction: column;
-        padding: 0 0.5rem;
+		padding: 0 0.5rem;
 	}
 `;
 
@@ -59,10 +57,10 @@ export const ProfileSection = styled.div`
 	width: 100%;
 	height: fit-content;
 	padding: 2rem 0;
-    
-    @media (max-width: 425px) {
+
+	@media (max-width: 768px) {
 		flex-direction: column;
-        padding: 0 0.5rem;
+		padding: 0 0.5rem;
 	}
 `;
 
@@ -71,32 +69,29 @@ export const ProfileSectionHeader = styled.div`
 	width: 30%;
 	height: fit-content;
 
-    @media (max-width: 425px) {
+	@media (max-width: 768px) {
 		width: 100%;
-
 	}
 `;
 
 export const ProfileSectionContent = styled.div`
 	width: 70%;
 	height: fit-content;
-    display: flex;
-    flex-wrap: wrap;    
-    column-gap: 1rem;
-    row-gap: 1rem;
-    @media (max-width: 425px) {
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 1rem;
+	row-gap: 1rem;
+	@media (max-width: 768px) {
 		width: 100%;
-
 	}
 `;
 
 export const ProfileSectionContentText = styled.div`
 	width: 70%;
 	height: fit-content;
-    
-    @media (max-width: 425px) {
-		width: 100%;
 
+	@media (max-width: 768px) {
+		width: 100%;
 	}
 `;
 
@@ -122,7 +117,7 @@ export const ProfileText = styled.div`
 	margin-left: 1vw;
 	margin-top: 6vh;
 
-	@media (max-width: 425px) {
+	@media (max-width: 768px) {
 		margin-left: 10px;
 		margin-top: 20px;
 	}
@@ -136,7 +131,7 @@ export const ProfileButtons = styled.div`
 	align-self: baseline;
 	margin-top: 6vh;
 
-	@media (max-width: 425px) {
+	@media (max-width: 768px) {
 		margin-left: 10px;
 		margin-top: 0;
 	}
@@ -210,35 +205,40 @@ export const ButtonText = styled.button`
 	font-weight: bold;
 	padding: 0.5em 0.75em;
 	transition: all 0.2s ease-in-out;
-    background-color: transparent;
+	background-color: transparent;
 	&:hover {
 		color: var(--quinary);
-        text-decoration: underline;
+		text-decoration: underline;
 	}
 	&:active {
 		transform: scale(0.95);
 	}
 `;
 interface Props {
-    w: string;
-  }
+	w?: string;
+}
 
 export const ExperienceCard = styled.div<Props>`
-	width: ${props => props.w ? props.w : '32%'};
-	border: 1px solid  var(--quaternary);
+	width: ${(props) => (props.w ? props.w : '31%')};
+	border: 1px solid var(--quaternary);
 	border-radius: 0.5em;
 
-    transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 
-    &.active {
-        width: 100%;
-        order: -1;
-
-    }
-    @media (max-width: 1400px) {
+	&.active {
+		width: 100%;
+		order: -1;
+	}
+	@media (max-width: 1400px) {
 		width: 48%;
 	}
-    @media (max-width: 425px) {
+	@media (max-width: 1180px) {
+		width: 48%;
+	}
+	@media (max-width: 768px) {
+		width: 100%;
+	}
+	@media (max-width: 425px) {
 		width: 100%;
 	}
 `;
@@ -250,12 +250,78 @@ export const ExperienceCardHeader = styled.div`
 `;
 export const ExperienceCardContent = styled.div`
 	padding: 1rem;
-    transition: height 0.3s ease-in-out;
-    heigth: fit-content;
+	transition: height 0.3s ease-in-out;
+	heigth: fit-content;
 `;
 export const ExperienceCardFooter = styled.div`
 	display: flex;
 	justify-content: flex-end;
+	padding: 0.5rem;
+	border-top: 1px solid var(--quaternary);
+`;
+
+export const Form = styled.form`
+	display: flex;
+	flex-wrap: wrap;
+	column-gap: 1rem;
+	row-gap: 1.5rem;
+`;
+
+export const FormGroup = styled.div<Props>`
+	width: ${(props) => (props.w ? props.w : '100%')};
+	display: flex;
+	flex-direction: column;
+`;
+
+export const InputButton = styled.button`
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-family: inherit;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 0.5em 0.75em;
+    border: 2px solid var(--primary);
+    border-radius: 0.75em;
+    transition: all 0.2s ease-in-out;
+`;
+
+
+export const Input = styled.input`
+    outline: none;
+    width: 100%;
+    border: 1px solid var(--primary);
+    border-radius: 0.5em;
     padding: 0.5rem;
-    border-top: 1px solid  var(--quaternary);
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+        border: 1px solid var(--secondary);
+    }
+`;
+export const TextArea = styled.textarea`
+    outline: none;
+    width: 100%;
+    border: 1px solid var(--primary);
+    border-radius: 0.5em;
+    padding: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+        border: 1px solid var(--secondary);
+    }
+`;
+export const Label = styled.label`
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+    &:after {
+        content: ':';
+    }
+
 `;
