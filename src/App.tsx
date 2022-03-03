@@ -15,12 +15,17 @@ import {
 	ProfileSectionHeader,
 	ProfileSectionContent,
 	ProfileSectionContentText,
-  Form,
-  FormGroup,
-  Input,
-  Label,
-  TextArea,
+	Form,
+	FormGroup,
+	Input,
+	Label,
+	TextArea,
+	ColorBox,
+	ColorLabel,
+	Link,
 } from './styles/common/common';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 function App() {
 	const r = [1, 2, 3, 4, 5, 6, 7];
@@ -30,8 +35,8 @@ function App() {
 		return (w <= 30 ? 31 : w) + '%';
 	};
 
-  const goToContact = () =>   window.location.replace("/#contact");
-  
+	const goToContact = () => window.location.replace('/#contact');
+
 	return (
 		<Layout>
 			<Header></Header>
@@ -44,6 +49,16 @@ function App() {
 							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Beatae
 							distinctio, voluptas minima.
 						</p>
+						<ColorBox>
+							<FormGroup w='48%'>
+								<ColorLabel>Redes</ColorLabel>
+								<p style={{'margin': '0px'}}>
+									<Link href='#linkedin'>
+										Linkedin <FontAwesomeIcon icon={faLinkedin} />
+									</Link>
+								</p>
+							</FormGroup>
+						</ColorBox>
 					</ProfileText>
 					<ProfileButtons>
 						<Button>Descargar</Button>
@@ -99,12 +114,14 @@ function App() {
 								<TextArea id='message' name='message' required></TextArea>
 							</FormGroup>
 							<FormGroup w='100%'>
-								<ButtonSolid type='submit' value='Submit message' >Submit message</ButtonSolid>
+								<ButtonSolid type='submit' value='Submit message'>
+									Submit message
+								</ButtonSolid>
 							</FormGroup>
 						</Form>
 					</ProfileSectionContent>
 				</ProfileSection>
-        <Divider id='footer' />
+				<Divider id='footer' />
 			</InnerLayout>
 		</Layout>
 	);

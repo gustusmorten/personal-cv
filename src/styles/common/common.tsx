@@ -37,9 +37,6 @@ export const Header = styled.div`
 	background-color: var(--primary);
 	z-index: 1;
 	position: absolute;
-
-	
-
 `;
 
 export const ProfileCard = styled.div`
@@ -49,6 +46,7 @@ export const ProfileCard = styled.div`
 	@media (max-width: 768px) {
 		flex-direction: column;
 		padding: 0 0.5rem;
+		row-gap: 1rem;
 	}
 `;
 
@@ -111,6 +109,7 @@ export const ProfileImg = styled.img`
 `;
 
 export const ProfileText = styled.div`
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
@@ -119,6 +118,7 @@ export const ProfileText = styled.div`
 
 	@media (max-width: 768px) {
 		margin-left: 10px;
+		margin-right: 10px;
 		margin-top: 20px;
 	}
 `;
@@ -263,65 +263,126 @@ export const ExperienceCardFooter = styled.div`
 export const Form = styled.form`
 	display: flex;
 	flex-wrap: wrap;
-	column-gap: 1rem;
 	row-gap: 1.5rem;
+	justify-content: space-between;
 `;
 
 export const FormGroup = styled.div<Props>`
 	width: ${(props) => (props.w ? props.w : '100%')};
 	display: flex;
 	flex-direction: column;
+	@media (max-width: 768px) {
+		width: 100%;
+	}
 `;
 
 export const InputButton = styled.button`
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    outline: none;
-    border: 0;
-    vertical-align: middle;
-    text-decoration: none;
-    font-family: inherit;
-    box-sizing: border-box;
-    background-color: transparent;
-    font-weight: bold;
-    padding: 0.5em 0.75em;
-    border: 2px solid var(--primary);
-    border-radius: 0.75em;
-    transition: all 0.2s ease-in-out;
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	font-family: inherit;
+	box-sizing: border-box;
+	background-color: transparent;
+	font-weight: bold;
+	padding: 0.5em 0.75em;
+	border: 2px solid var(--primary);
+	border-radius: 0.75em;
+	transition: all 0.2s ease-in-out;
 `;
-
 
 export const Input = styled.input`
-    outline: none;
-    width: 100%;
-    border: 1px solid var(--primary);
-    border-radius: 0.5em;
-    padding: 0.5rem;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-    &:focus {
-        border: 1px solid var(--secondary);
-    }
+	outline: none;
+	width: 100%;
+	border: 1px solid var(--primary);
+	border-radius: 0.5em;
+	padding: 0.5rem;
+	font-size: 1rem;
+	transition: all 0.3s ease-in-out;
+	&:focus {
+		border: 1px solid var(--secondary);
+	}
 `;
 export const TextArea = styled.textarea`
-    outline: none;
-    width: 100%;
-    border: 1px solid var(--primary);
-    border-radius: 0.5em;
-    padding: 0.5rem;
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
-    &:focus {
-        border: 1px solid var(--secondary);
-    }
+	outline: none;
+	width: 100%;
+	border: 1px solid var(--primary);
+	border-radius: 0.5em;
+	padding: 0.5rem;
+	font-size: 1rem;
+	transition: all 0.3s ease-in-out;
+	&:focus {
+		border: 1px solid var(--secondary);
+	}
 `;
 export const Label = styled.label`
-    font-size: 18px;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-    &:after {
-        content: ':';
-    }
+	font-size: 18px;
+	font-weight: bold;
+	transition: all 0.3s ease-in-out;
+	&:after {
+		content: ':';
+	}
+`;
+export const ColorBox = styled.div`
+	background-color: var(--transparent);
+	border: 2px solid var(--transparent-border);
+	width: 100%;
+	padding: 1rem;
+	border-radius: 0.5em;
+	@media (max-width: 768px) {
+		width: 98%;
+	}
+`;
 
+export const ColorLabel = styled.p`
+	opacity: 0.78;
+	margin-bottom: 0.5rem;
+	&:after {
+		content: ':';
+	}
+`;
+
+export const Link = styled.a`
+	outline: none;
+	text-decoration: none;
+	color: var(--secondary-text)
+	font-weight: bold;
+
+
+	position:relative;
+	text-decoration: none;
+	color: gray;
+ 	transition:color .15s ease-in-out;
+	 &:active,
+	 &:focus,
+	 &:hover {
+		background-size: 100% 100%;
+		cursor: pointer;
+		color: var(--quaternary);
+	}
+
+	&:after {
+		display:block;
+		content:"";
+		position: absolute;
+		right:0;
+		left:0;
+		width: auto;
+		height:3px;
+		opacity:0;
+		transform:translateY(-150%);
+		transition:transform .15s ease-in-out, opacity .15s ease-in-out;
+		background-color: var(--quaternary);
+
+	}
+
+	&:active:after,
+	&:focus:after,
+	&:hover:after {
+		transform:translateY(0);
+		opacity:1;
+	}
 `;

@@ -21,6 +21,8 @@ body {
     --quaternary: #C38D94;
     --quinary: #75ad8b;
     --secondary-text: #616161;
+    --transparent: rgba(137,187, 254, 0.1);
+    --transparent-border: #5b9df75c;
 }
 
 p, small {
